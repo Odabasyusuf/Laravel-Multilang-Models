@@ -11,21 +11,24 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <form method="POST" action="{{ route('posts.store') }}">
                     @csrf
-                    <!-- Name -->
-                        <div class="mt-4">
-                            <label for="title_{{ app()->getLocale() }}">Title ({{ strtoupper(app()->getLocale()) }})</label>
 
-                            <input type="text" name="title_{{ app()->getLocale() }}" id="title_{{ app()->getLocale() }}"
-                                   value="{{ old('title_' . app()->getLocale()) }}"
+                    <!-- Name -->
+                        @foreach(config('app.available_locales') as $locale)
+                        <div class="mt-4">
+                            <label for="title_{{ $locale }}">Title ({{ strtoupper($locale) }})</label>
+
+                            <input type="text" name="title_{{ $locale }}" id="title_{{ $locale }}"
+                                   value="{{ old('title_' . $locale) }}"
                                    class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required autofocus />
                         </div>
 
                         <div class="mt-4">
-                            <label for="full_text_{{ app()->getLocale() }}">Full Text ({{ strtoupper(app()->getLocale()) }})</label>
+                            <label for="full_text_{{ $locale }}">Full Text ({{ strtoupper($locale) }})</label>
 
-                            <textarea name="full_text_{{ app()->getLocale() }}" id="full_text_{{ app()->getLocale() }}" rows="5"
-                                      class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">{{ old('full_text_' . app()->getLocale()) }}</textarea>
+                            <textarea name="full_text_{{ $locale }}" id="full_text_{{ $locale }}" rows="5"
+                                      class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">{{ old('full_text_' . $locale) }}</textarea>
                         </div>
+                        @endforeach
 
                         <div class="flex items-center mt-4">
                             <x-button>

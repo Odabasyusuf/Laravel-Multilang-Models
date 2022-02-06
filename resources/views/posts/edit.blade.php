@@ -16,7 +16,7 @@
                             <label for="title_{{ app()->getLocale() }}">Title ({{ strtoupper(app()->getLocale()) }})</label>
 
                             <input type="text" name="title_{{ app()->getLocale() }}" id="title_{{ app()->getLocale() }}"
-                                   value="{{ old('title_' . app()->getLocale()) }}"
+                                   value="{{ $post->{'title_'.app()->getLocale()} }}"
                                    class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required autofocus />
                         </div>
 
@@ -24,7 +24,7 @@
                             <label for="full_text_{{ app()->getLocale() }}">Full Text ({{ strtoupper(app()->getLocale()) }})</label>
 
                             <textarea name="full_text_{{ app()->getLocale() }}" id="full_text_{{ app()->getLocale() }}" rows="5"
-                                      class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">{{ old('full_text_' . app()->getLocale()) }}</textarea>
+                                      class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">{{ $post->{'full_text_'.app()->getLocale()} }}</textarea>
                         </div>
 
                         <div class="flex items-center mt-4">

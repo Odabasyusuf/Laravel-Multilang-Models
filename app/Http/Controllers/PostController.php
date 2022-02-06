@@ -30,4 +30,21 @@ class PostController extends Controller
 
         return redirect()->route('dashboard');
     }
+
+    public function edit($id)
+    {
+        $post = Post::find($id);
+        return view('posts.edit', compact('post'));
+    }
+
+    public function save($id, Request $request)
+    {
+        $post = Post::find($id);
+        $post->update([
+            'title_'.app()->getLocale() => $request['title_'.app()->getLocale()],
+            'full_text_'.app()->getLocale() => $request['full_text_'.app()->getLocale()],
+        ]);
+
+        return back();
+    }
 }

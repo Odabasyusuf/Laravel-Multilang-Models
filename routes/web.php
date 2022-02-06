@@ -20,6 +20,9 @@ Route::group(['middleware' => ['auth']], function() {
         ->name('dashboard');
     Route::resource('posts', \App\Http\Controllers\PostController::class)
         ->only('create', 'store');
+
+    Route::get('/posts/edit/{id}',  [\App\Http\Controllers\PostController::class, 'edit'])->name('post.edit');
+    Route::post('/posts/edit/{id}',  [\App\Http\Controllers\PostController::class, 'save']);
 });
 
 require __DIR__.'/auth.php';
