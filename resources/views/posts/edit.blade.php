@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form method="POST" action="{{ route('posts.store') }}">
+                    <form method="POST" action="{{ route('post.edit', $post->id) }}">
                     @csrf
                     <!-- Name -->
                         <div class="mt-4">
@@ -29,7 +29,7 @@
 
                         <div class="flex items-center mt-4">
                             <x-button>
-                                {{ __('Save Post') }}
+                                {{ __('Edit Post') }}
                             </x-button>
                         </div>
                     </form>

@@ -3,7 +3,16 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Home') }}
         </h2>
+
+        @livewire('search-users')
     </x-slot>
+
+
+    <livewire:counter />
+
+
+    @livewire('test-first')
+
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
